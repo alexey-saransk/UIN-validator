@@ -52,7 +52,7 @@
     
     $uin = json_decode(file_get_contents('php://input'), true);
     
-    $result = evolenta\uinValidator\uinValidator::uinIsValidate($uin);
+    $result = evolenta\uinValidator\uinValidator::uinIsValidate($uin["uin"]);
     
     echo json_encode($result);
 
