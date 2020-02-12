@@ -17,29 +17,31 @@
 Изначально валидатор создавался для бэка, но для того чтобы использовать и на фронте(JS) создайте и отправляйте AJAX запросы на ajaxUinValidator.php (пример чуть ниже)
 
 ```javascript
-    // *.js - для ajax-запросов
-    let number = "18810102180511993457";
-    let url = ".../uinValidator.php";
 
-    let data = {
-        "uin": number
-    };
+// *.js - для ajax-запросов
+let number = "18810102180511993457";
+let url = ".../uinValidator.php";
 
-    $.ajax({
-        type: "POST",
-        url: url,
-        data: JSON.stringify(data),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (data) {
-            console.log("Результат: ", data);
-            if (data.code == "Y" && data.text == "Y") {
-                alert("УИН валидный");
-            } else {
-                alert("УИН НЕ валидный");
-            }
-        },
-    });
+let data = {
+    "uin": number
+};
+
+$.ajax({
+    type: "POST",
+    url: url,
+    data: JSON.stringify(data),
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function (data) {
+        console.log("Результат: ", data);
+        if (data.code === "Y" && data.text === "Y") {
+            alert("УИН валидный");
+        } else {
+            alert("УИН НЕ валидный");
+        }
+    },
+});
+
 ```
 
 ```php
