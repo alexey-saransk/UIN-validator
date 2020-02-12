@@ -52,6 +52,7 @@
     
     $uin = json_decode(file_get_contents('php://input'), true);
     
+    //метод uinIsValidate должен принимать именно тип string
     $result = evolenta\uinValidator\uinValidator::uinIsValidate($uin["uin"]);
     
     echo json_encode($result);
